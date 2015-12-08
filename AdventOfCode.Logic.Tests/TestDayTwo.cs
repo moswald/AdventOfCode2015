@@ -8,14 +8,22 @@
     public class TestDayTwo
     {
         [Theory]
-        [MemberData("TestData")]
+        [MemberData("PartOneTestData")]
         public void CalculateTotalAreaReturnsCorrectResult(string dimensionList, int expectedTotal)
         {
             DayTwo.CalculateTotalArea(dimensionList)
                 .Should().Be(expectedTotal);
         }
 
-        public static IEnumerable<object[]> TestData()
+        [Theory]
+        [MemberData("PartTwoTestData")]
+        public void CalculateRibbonLength(string dimensionList, int expectedTotal)
+        {
+            DayTwo.CalculateRibbonLength(dimensionList)
+                .Should().Be(expectedTotal);
+        }
+
+        public static IEnumerable<object[]> PartOneTestData()
         {
             yield return new object[] { "2x3x4", 58 };
             yield return new object[] { "1x1x10", 43 };
@@ -23,7 +31,20 @@
             {
                 "2x3x4\n" +
                 "1x1x10",
-                58 + 43 };
+                58 + 43
+            };
+        }
+
+        public static IEnumerable<object[]> PartTwoTestData()
+        {
+            yield return new object[] { "2x3x4", 34 };
+            yield return new object[] { "1x1x10", 14 };
+            yield return new object[]
+            {
+                "2x3x4\n" +
+                "1x1x10",
+                34 + 14
+            };
         }
     }
 }

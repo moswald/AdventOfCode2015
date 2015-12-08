@@ -43,6 +43,9 @@
 
             var result = DayTwo.CalculateTotalArea(input);
             Console.WriteLine($"Day 02-A: {result}");
+
+            result = DayTwo.CalculateRibbonLength(input);
+            Console.WriteLine($"Day 02-B: {result}");
         }
     }
 }

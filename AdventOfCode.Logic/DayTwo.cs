@@ -10,17 +10,21 @@
         {
             return Regex.Split(dimensionList, "\r\n|\r|\n")
                 .Select(definition => new Package(definition))
-                .Select(package => package.SurfaceArea + package.Shortest)
+                .Select(package => package.SurfaceArea + package.Length * package.Width)
+                .Sum();
+        }
+
+        public static int CalculateRibbonLength(string dimensionList)
+        {
+            return Regex.Split(dimensionList, "\r\n|\r|\n")
+                .Select(definition => new Package(definition))
+                .Select(package => 2 * package.Length + 2 * package.Width + package.Volume)
                 .Sum();
         }
 
         struct Package
         {
             readonly int[] _dimensions;
-
-            int Length => _dimensions[0];
-            int Width => _dimensions[1];
-            int Height => _dimensions[2];
 
             public Package(string definition)
             {
@@ -30,11 +34,15 @@
                     .ToArray();
             }
 
+            public int Length => _dimensions[0];
+            public int Width => _dimensions[1];
+            public int Height => _dimensions[2];
+
             public int SurfaceArea => 2 * Length * Width +
                                       2 * Length * Height +
                                       2 * Width * Height;
 
-            public int Shortest => Length * Width;
+            public int Volume => Length * Width * Height;
         }
     }
 }
