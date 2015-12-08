@@ -1,0 +1,30 @@
+{
+  "description": "AdventOfCode.Logic.Tests",
+
+  "commands": {
+      "test": "xunit.runner.dnx"
+  },
+
+  "frameworks": {
+    "dnx451": {
+      "compilationOptions": {
+        "define": [ "COREFX" ]
+      },
+
+      "frameworkAssemblies": {
+        "System.Runtime": "4.0.10-*"
+      },
+
+      "dependencies": {
+        "AdventOfCode.Logic": { "target": "project" },
+        "FluentAssertions": "4.1.0",
+        "System.Collections": "4.0.11-*",
+        "System.Reflection": "4.0.0-*",
+        "System.Resources.ResourceManager": "4.0.0-*",
+        "System.Runtime": "4.0.21-*",
+        "xunit": "2.1.0-*",
+        "xunit.runner.dnx": "2.1.0-*"
+      }
+    }
+  }
+}
