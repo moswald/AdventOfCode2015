@@ -8,6 +8,10 @@
         "define": [ "COREFX" ]
       },
 
+      "frameworkAssemblies": {
+        "System.Runtime": "4.0.10-*"
+      },
+
       "dependencies": {
         "AdventOfCode.Logic": { "target": "project" },
         "System.Linq": "4.0.0-*",
