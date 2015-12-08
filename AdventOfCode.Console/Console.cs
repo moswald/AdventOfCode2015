@@ -9,6 +9,7 @@
         static void Main()
         {
             RunDayOne();
+            RunDayTwo();
 
             Console.ReadKey(true);
         }
@@ -28,6 +29,20 @@
 
             result = DayOne.PositionOfBasement(input);
             Console.WriteLine($"Day 01-B: {result}");
+        }
+
+        static void RunDayTwo()
+        {
+            var input = string.Empty;
+
+            using (var stream = new FileStream("./TestInput/dayTwo", FileMode.Open))
+            using (var reader = new StreamReader(stream))
+            {
+                input = reader.ReadToEnd();
+            }
+
+            var result = DayTwo.CalculateTotalArea(input);
+            Console.WriteLine($"Day 02-A: {result}");
         }
     }
 }
