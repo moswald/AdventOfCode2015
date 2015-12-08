@@ -1,26 +1,26 @@
 ﻿namespace AdventOfCode.Logic
 {
-    using System;
     using System.Linq;
     using System.Text.RegularExpressions;
 
-    public static class DayTwo
+    public class DayTwo
     {
-        public static int CalculateTotalArea(string dimensionList)
+        readonly Package[] _packages;
+
+        public DayTwo(string dimensionList)
         {
-            return Regex.Split(dimensionList, "\r\n|\r|\n")
+            _packages = Regex.Split(dimensionList, "\r\n|\r|\n")
                 .Select(definition => new Package(definition))
-                .Select(package => package.SurfaceArea + package.Length * package.Width)
-                .Sum();
+                .ToArray();
         }
 
-        public static int CalculateRibbonLength(string dimensionList)
-        {
-            return Regex.Split(dimensionList, "\r\n|\r|\n")
-                .Select(definition => new Package(definition))
+        public int CalculateTotalArea() => _packages
+                .Select(package => package.SurfaceArea + package.Length * package.Width)
+                .Sum();
+
+        public int CalculateRibbonLength() => _packages
                 .Select(package => 2 * package.Length + 2 * package.Width + package.Volume)
                 .Sum();
-        }
 
         struct Package
         {

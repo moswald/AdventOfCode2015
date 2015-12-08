@@ -11,7 +11,8 @@
         [MemberData("PartOneTestData")]
         public void CalculateTotalAreaReturnsCorrectResult(string dimensionList, int expectedTotal)
         {
-            DayTwo.CalculateTotalArea(dimensionList)
+            var dayTwo = new DayTwo(dimensionList);
+            dayTwo.CalculateTotalArea()
                 .Should().Be(expectedTotal);
         }
 
@@ -19,7 +20,8 @@
         [MemberData("PartTwoTestData")]
         public void CalculateRibbonLength(string dimensionList, int expectedTotal)
         {
-            DayTwo.CalculateRibbonLength(dimensionList)
+            var dayTwo = new DayTwo(dimensionList);
+            dayTwo.CalculateRibbonLength()
                 .Should().Be(expectedTotal);
         }
 

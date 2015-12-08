@@ -24,11 +24,9 @@
                 input = reader.ReadToEnd();
             }
 
-            var result = DayOne.GetFloor(input);
-            Console.WriteLine($"Day 01-A: {result}");
-
-            result = DayOne.PositionOfBasement(input);
-            Console.WriteLine($"Day 01-B: {result}");
+            var dayOne = new DayOne(input);
+            Console.WriteLine($"Day 01-A: {dayOne.GetFloor()}");
+            Console.WriteLine($"Day 01-B: {dayOne.PositionOfBasement()}");
         }
 
         static void RunDayTwo()
@@ -41,11 +39,9 @@
                 input = reader.ReadToEnd();
             }
 
-            var result = DayTwo.CalculateTotalArea(input);
-            Console.WriteLine($"Day 02-A: {result}");
-
-            result = DayTwo.CalculateRibbonLength(input);
-            Console.WriteLine($"Day 02-B: {result}");
+            var dayTwo = new DayTwo(input);
+            Console.WriteLine($"Day 02-A: {dayTwo.CalculateTotalArea()}");
+            Console.WriteLine($"Day 02-B: {dayTwo.CalculateRibbonLength()}");
         }
     }
 }

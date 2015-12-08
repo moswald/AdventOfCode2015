@@ -2,22 +2,24 @@
 {
     using System.Linq;
 
-    public static class DayOne
+    public class DayOne
     {
-        public static int GetFloor(string directions)
+        readonly int[] _directions;
+
+        public DayOne(string directions)
         {
-            return directions
+            _directions = directions
                 .Where(ch => ch == ')' || ch == '(')
                 .Select(ch => ch == ')' ? -1 : 1)
-                .Sum();
+                .ToArray();
         }
 
-        public static int PositionOfBasement(string directions)
+        public int GetFloor() => _directions.Sum();
+
+        public int PositionOfBasement()
         {
             var sum = 0;
-            return directions
-                .Where(ch => ch == ')' || ch == '(')
-                .Select(ch => ch == ')' ? -1 : 1)
+            return _directions
                 .TakeWhile(_ => sum != -1)
                 .Select(val => sum += val)
                 .Count();

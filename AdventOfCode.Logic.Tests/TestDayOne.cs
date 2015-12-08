@@ -17,7 +17,8 @@
         [InlineData(")())())", -3)]
         public void GetFloorReturnsCorrectResult(string directions, int expectedFloor)
         {
-            DayOne.GetFloor(directions)
+            var dayOne = new DayOne(directions);
+            dayOne.GetFloor()
                 .Should().Be(expectedFloor);
         }
 
@@ -26,7 +27,8 @@
         [InlineData("()())", 5)]
         public void PositionOfBasementReturnsCorrectResult(string directions, int expectedPosition)
         {
-            DayOne.PositionOfBasement(directions)
+            var dayOne = new DayOne(directions);
+            dayOne.PositionOfBasement()
                 .Should().Be(expectedPosition);
         }
     }
