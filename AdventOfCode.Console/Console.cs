@@ -10,6 +10,7 @@
         {
             RunDayOne();
             RunDayTwo();
+            RunDayThree();
 
             Console.ReadKey(true);
         }
@@ -42,6 +43,21 @@
             var dayTwo = new DayTwo(input);
             Console.WriteLine($"Day 02-A: {dayTwo.CalculateTotalArea()}");
             Console.WriteLine($"Day 02-B: {dayTwo.CalculateRibbonLength()}");
+        }
+
+        static void RunDayThree()
+        {
+            var input = string.Empty;
+
+            using (var stream = new FileStream("./TestInput/dayThree", FileMode.Open))
+            using (var reader = new StreamReader(stream))
+            {
+                input = reader.ReadToEnd();
+            }
+
+            var dayTwo = new DayThree(input);
+            Console.WriteLine($"Day 03-A: {dayTwo.UniqueVisitedHouses()}");
+            //Console.WriteLine($"Day 03-B: {dayThree.()}");
         }
     }
 }
