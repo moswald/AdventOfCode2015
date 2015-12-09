@@ -55,9 +55,9 @@
                 input = reader.ReadToEnd();
             }
 
-            var dayTwo = new DayThree(input);
-            Console.WriteLine($"Day 03-A: {dayTwo.UniqueVisitedHouses()}");
-            //Console.WriteLine($"Day 03-B: {dayThree.()}");
+            var dayThree = new DayThree(input);
+            Console.WriteLine($"Day 03-A: {dayThree.UniqueVisitedHouses()}");
+            Console.WriteLine($"Day 03-B: {dayThree.UniqueVisitedHousesWithMultipleVisitors()}");
         }
     }
 }
