@@ -11,7 +11,7 @@
             RunDayOne();
             RunDayTwo();
             RunDayThree();
-            RunDayFour();
+            //RunDayFour(); // skipping - takes too long
 
             Console.ReadKey(true);
         }
