@@ -11,6 +11,7 @@
             RunDayOne();
             RunDayTwo();
             RunDayThree();
+            RunDayFour();
 
             Console.ReadKey(true);
         }
@@ -58,6 +59,14 @@
             var dayThree = new DayThree(input);
             Console.WriteLine($"Day 03-A: {dayThree.UniqueVisitedHouses()}");
             Console.WriteLine($"Day 03-B: {dayThree.UniqueVisitedHousesWithMultipleVisitors()}");
+        }
+
+        static void RunDayFour()
+        {
+            var input = "yzbqklnj";
+
+            var dayFour = new DayFour();
+            Console.WriteLine($"Day 04-A: {dayFour.MineAdventCoin(input)}");
         }
     }
 }
