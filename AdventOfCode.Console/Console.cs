@@ -66,7 +66,8 @@
             var input = "yzbqklnj";
 
             var dayFour = new DayFour();
-            Console.WriteLine($"Day 04-A: {dayFour.MineAdventCoin(input)}");
+            Console.WriteLine($"Day 04-A: {dayFour.MineAdventCoin(input, 5)}");
+            Console.WriteLine($"Day 04-B: {dayFour.MineAdventCoin(input, 6)}");
         }
     }
 }

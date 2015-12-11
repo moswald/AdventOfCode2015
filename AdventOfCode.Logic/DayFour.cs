@@ -10,18 +10,29 @@
     {
         readonly MD5 _md5 = MD5.Create();
 
-        public int MineAdventCoin(string key)
+        public int MineAdventCoin(string key, int startingZeroes)
         {
             return Alg.Infinity()
-                .First(num => HashHelper(key, num));
+                .First(num => HashHelper(key, num, startingZeroes));
         }
 
-        bool HashHelper(string key, int number)
+        bool HashHelper(string key, int number, int startingZeroes)
         {
+            var allZero = (startingZeroes % 2) == 0;
+            var count = (startingZeroes + 1) / 2;
             return _md5.ComputeHash(Encoding.UTF8.GetBytes(key + number))
-                .TakeWhile((b, idx) => idx == 2 ? b <= 0xf : b == 0)
-                .Take(3)
-                .Count() == 3;
+                .Take(count)
+                .Select(
+                    (b, idx) =>
+                    {
+                        if (allZero || (idx < count - 1))
+                        {
+                            return b == 0;
+                        }
+
+                        return b <= 0xf;
+                    })
+                .Count(b => b) == 3;
         }
     }
 }
